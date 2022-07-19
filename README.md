@@ -1,6 +1,6 @@
 # chatapp
 
-A new Flutter project.
+This is app which I make in process of learning flutter. In app user can create profile and login, send a message to another users and send a picture. For backend I use firebase.
 
 ## Getting Started
 

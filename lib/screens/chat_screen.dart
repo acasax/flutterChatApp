@@ -32,7 +32,10 @@ class _ChatScreenState extends State<ChatScreen> {
                 child: Container(
                   child: Row(
                     children: <Widget>[
-                      Icon(Icons.exit_to_app),
+                      Icon(
+                        Icons.exit_to_app,
+                        color: Colors.black,
+                      ),
                       SizedBox(
                         width: 8,
                       ),
@@ -51,36 +54,6 @@ class _ChatScreenState extends State<ChatScreen> {
           )
         ],
       ),
-      // body: StreamBuilder(
-      //   stream: firestore
-      //       .collection('chats')
-      //       .doc('bAdVETxDpMo1uFNgCP2n')
-      //       .collection('messages')
-      //       .snapshots(),
-      //   builder: (BuildContext context,
-      //       AsyncSnapshot<QuerySnapshot> streamSnapshot) {
-      //     if (streamSnapshot.hasError) {
-      //       return Text('Something went wrong');
-      //     }
-
-      //     if (streamSnapshot.connectionState == ConnectionState.waiting) {
-      //       return Center(
-      //         child: CircularProgressIndicator(),
-      //       );
-      //     }
-
-      //     final documents = streamSnapshot.data.docs;
-      //     return ListView.builder(
-      //       itemCount: documents.length,
-      //       itemBuilder: (ctx, index) => Container(
-      //         padding: EdgeInsets.all(10),
-      //         child: Text(
-      //           documents[index]['text'],
-      //         ),
-      //       ),
-      //     );
-      //   },
-      // ),
       body: Container(
         child: Column(
           children: <Widget>[
@@ -91,16 +64,6 @@ class _ChatScreenState extends State<ChatScreen> {
           ],
         ),
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   child: Icon(Icons.add),
-      //   onPressed: () {
-      //     firestore
-      //         .collection('chats')
-      //         .doc('bAdVETxDpMo1uFNgCP2n')
-      //         .collection('messages')
-      //         .add({'text': 'This is add +'});
-      //   },
-      // ),
     );
   }
 }
