@@ -56,6 +56,7 @@ class Messages extends StatelessWidget {
                 documents[index]['username'] == null
                     ? ''
                     : documents[index]['username'],
+                documents[index]['userImage'],
                 key: ValueKey(
                   documents[index].id,
                 ),

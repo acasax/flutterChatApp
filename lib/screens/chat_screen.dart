@@ -1,9 +1,16 @@
-import 'package:flutter/material.dart';
+// ignore_for_file: unused_local_variable
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/material.dart';
+import 'package:overlay_support/overlay_support.dart';
 
+import '../models/push_notification.dart';
 import '../widgets/chat/messages.dart';
 import '../widgets/chat/new_message.dart';
+import '../widgets/notifications/notification_badge.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({Key key}) : super(key: key);
@@ -13,6 +20,17 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
+  @override
+  void initState() {
+    final fbm = FirebaseMessaging.instance;
+    fbm.requestPermission();
+    FirebaseMessaging.onMessage.listen((msg) {
+      print('poruka' + msg.toString());
+    });
+    print('init state');
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
